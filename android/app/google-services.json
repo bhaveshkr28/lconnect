@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "283785050427",
+    "project_id": "lconnect-60df5",
+    "storage_bucket": "lconnect-60df5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283785050427:android:ae04c5ec4ca0f3762adf1e",
+        "android_client_info": {
+          "package_name": "com.example.lconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283785050427-4ncumc4m6gnloila24d4g3fucv7jk9ai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJUufJi3VWlt923mPVc9gFbg_63C4d8gA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283785050427-4ncumc4m6gnloila24d4g3fucv7jk9ai.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "283785050427-pan8sne1hna71rcptifsht8n6qhghb4g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lconnect"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
