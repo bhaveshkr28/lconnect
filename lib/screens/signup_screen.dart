@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lconnect/constants/app_colors.dart';
+import 'package:lconnect/constants/app_names.dart';
 import 'package:lconnect/screens/home.dart';
+import 'package:lconnect/screens/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -119,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: GestureDetector(
                     onTap: () {
                       // 👉 Navigate to Login Screen
-                       Navigator.push(context, MaterialPageRoute(builder: (_) => CollegeHome()));
+                       Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
                     },
                     child: RichText(
                       text: const TextSpan(
@@ -138,6 +140,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
+                SizedBox(height: 20,),
+                /*Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.purpleAccent
+                  ),
+                  padding: EdgeInsets.all(16),
+                  child: Icon(Icons.g_mobiledata),
+                )*/
               ],
             ),
           ),
