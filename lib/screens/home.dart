@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lconnect/constants/app_colors.dart';
+import 'package:lconnect/screens/chat_screen.dart';
+import 'package:lconnect/screens/confession.dart';
+import 'package:lconnect/screens/group_chat_screen.dart';
 
 class CollegeHome extends StatelessWidget {
   const CollegeHome({super.key});
@@ -9,7 +12,8 @@ class CollegeHome extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
-        child: SingleChildScrollView( // ✅ make screen scrollable
+        child: SingleChildScrollView(
+          // ✅ make screen scrollable
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,37 +75,58 @@ class CollegeHome extends StatelessWidget {
               const SizedBox(height: 12),
 
               GridView.count(
-                shrinkWrap: true, // ✅ grid takes only needed height
-                physics: const NeverScrollableScrollPhysics(), // ✅ disable inner scroll
+                shrinkWrap: true,
+                // ✅ grid takes only needed height
+                physics: const NeverScrollableScrollPhysics(),
+                // ✅ disable inner scroll
                 crossAxisCount: 2,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
                 childAspectRatio: 1.2,
                 children: [
-                  _buildCategoryCard(
+                  buildCategoryCard(
                     icon: Icons.favorite,
                     title: "Confession",
                     color: Colors.pinkAccent,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => UniqueConfessionPage(),
+                        ),
+                      );
+                    },
                   ),
-                  _buildCategoryCard(
+                  buildCategoryCard(
                     icon: Icons.chat,
                     title: "Chat",
                     color: Colors.blue,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => GroupChatScreen(),
+                        ),
+                      );
+                    },
                   ),
-                  _buildCategoryCard(
+                  buildCategoryCard(
                     icon: Icons.videogame_asset,
                     title: "Gaming",
                     color: Colors.green,
+                    onPressed: () {},
                   ),
-                  _buildCategoryCard(
+                  buildCategoryCard(
                     icon: Icons.event,
                     title: "Events",
                     color: Colors.orange,
+                    onPressed: () {},
                   ),
-                  _buildCategoryCard(
+                  buildCategoryCard(
                     icon: Icons.book_outlined,
                     title: "Notes",
                     color: Colors.orange,
+                    onPressed: () {},
                   ),
                 ],
               ),
@@ -134,29 +159,36 @@ class CollegeHome extends StatelessWidget {
   }
 
   /// CATEGORY CARD
-  static Widget _buildCategoryCard({
+  static Widget buildCategoryCard({
     required IconData icon,
     required String title,
     required Color color,
+    required VoidCallback onPressed,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundColor: color,
-            child: Icon(icon, color: Colors.white),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-          ),
-        ],
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: color.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 28,
+              backgroundColor: color,
+              child: Icon(icon, color: Colors.white, size: 28),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
       ),
     );
   }

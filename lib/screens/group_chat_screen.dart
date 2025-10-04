@@ -66,7 +66,7 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
             ),
 
             // ✅ Message Input Field
-            Container(
+           /* Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               color: Colors.white,
               child: Row(
@@ -93,6 +93,62 @@ class _GroupChatScreenState extends State<GroupChatScreen> {
                     backgroundColor: Colors.blue,
                     child: Icon(Icons.send, color: Colors.white),
                   ),
+                ],
+              ),
+            ),*/
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 8,
+                    offset: const Offset(0, -2),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                     // controller: _confessionController,
+                      style: const TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        hintText: "Type your confession...",
+                        hintStyle: const TextStyle(color: Colors.grey),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  GestureDetector(
+                    onTap: () {
+                      /*if (_confessionController.text.isNotEmpty) {
+                        setState(() {
+                          confessions.add(_confessionController.text);
+                          _confessionController.clear();
+                        });
+                        // Jump to new confession
+                        _pageController.jumpToPage(confessions.length - 1);
+                      }*/
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(Icons.send, color: Colors.white),
+                    ),
+                  )
                 ],
               ),
             ),

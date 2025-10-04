@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lconnect/constants/app_colors.dart';
 
 class UniqueConfessionPage extends StatefulWidget {
   const UniqueConfessionPage({super.key});
@@ -24,7 +25,7 @@ class _UniqueConfessionPageState extends State<UniqueConfessionPage> {
       appBar: AppBar(
         title: const Text("Confessions"),
         centerTitle: true,
-        backgroundColor: Colors.black,
+        backgroundColor: AppColors.background,
       ),
       body: Column(
         children: [
